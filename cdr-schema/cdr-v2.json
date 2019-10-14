@@ -117,7 +117,7 @@
   },
   "definitions": {
     "text-annotation": {
-      "description": "An array of simple annotations, each consisting only of a string",
+      "description": "An array of simple annotations, each consisting only of a string. (Currently unused.)",
       "$id": "text-annotation",
       "type": "object",
       "properties": {
@@ -136,7 +136,7 @@
       }
     },
     "dictionary-annotation": {
-      "description": "An array of annotations, each of which is a collection of key-value pairs of type string",
+      "description": "An array of annotations, each of which is a collection of key-value pairs of type string. (Currently unused.)",
       "$id": "dictionary-annotation",
       "type": "object",
       "properties": {
