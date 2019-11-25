@@ -18,7 +18,7 @@
     "timestamp": {
       "description": "Timestamp when this CDR document was created, in ISO 8601 date time format at UTC offset",
       "type": "string",
-      "pattern" : "[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]\\.[0-9]{3}Z"
+      "pattern": "[0-9]{4}-[0-1][0-9]-[0-3][0-9]T[0-2][0-9]:[0-6][0-9]:[0-6][0-9]\\.[0-9]{3}Z"
     },
     "team": {
       "description": "Team which generated this CDR",
@@ -105,7 +105,7 @@
             "$ref": "#/definitions/offset-tag-annotation"
           },
           {
-            "$ref": "#/definitions/keyword-annotation"
+            "$ref": "#/definitions/facet-annotation"
           }
         ]
       }
@@ -128,10 +128,14 @@
         },
         "type": {
           "type": "string",
-          "enum": ["text"]
+          "enum": [
+            "text"
+          ]
         }
       },
-      "required": ["type"]
+      "required": [
+        "type"
+      ]
     },
     "dictionary-annotation": {
       "description": "An annotation consisting of a collection of key-value pairs of type string. (Currently unused.)",
@@ -146,7 +150,9 @@
         },
         "type": {
           "type": "string",
-          "enum": ["dictionary"]
+          "enum": [
+            "dictionary"
+          ]
         },
         "content": {
           "type": "object",
@@ -155,7 +161,9 @@
           }
         }
       },
-      "required": ["type"]
+      "required": [
+        "type"
+      ]
     },
     "offset-tag-annotation": {
       "description": "An annotation consisting of an array of tags, each identified with a specific substring of extracted_text. Currently used by Qntfy's event and NER extraction tools.",
@@ -170,7 +178,9 @@
         },
         "type": {
           "type": "string",
-          "enum": ["tags"]
+          "enum": [
+            "tags"
+          ]
         },
         "content": {
           "type": "array",
@@ -202,11 +212,13 @@
           }
         }
       },
-      "required": ["type"]
+      "required": [
+        "type"
+      ]
     },
-    "keyword-annotation": {
-      "description": "An annotation consisting of any array of keywords, each of which has an optional confidence value between 0 and 1. Meant to replace deprecated \"categories\" property. Currently used by Qntfy's topic recognition tool to identify topics along with a confidence score for each.",
-      "$id": "keyword-annotation",
+    "facet-annotation": {
+      "description": "An annotation consisting of any array of words or phrases that characterize some facet of a document, each of which has an optional confidence value between 0 and 1.",
+      "$id": "facet-annotation",
       "type": "object",
       "properties": {
         "label": {
@@ -217,14 +229,16 @@
         },
         "type": {
           "type": "string",
-          "enum": ["keywords"]
+          "enum": [
+            "facets"
+          ]
         },
         "content": {
           "type": "array",
           "items": {
             "type": "object",
             "properties": {
-              "keyword": {
+              "value": {
                 "type": "string"
               },
               "confidence": {
@@ -235,12 +249,14 @@
               }
             },
             "required": [
-              "keyword"
+              "value"
             ]
           }
         }
       },
-      "required": ["type"]
+      "required": [
+        "type"
+      ]
     }
   },
   "required": [
